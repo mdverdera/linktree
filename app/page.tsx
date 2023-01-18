@@ -9,8 +9,7 @@ import {
   ArchiveBoxArrowDownIcon,
 } from "@heroicons/react/24/solid";
 
-export const dynamic = "force-dynamic",
-  runtime = "edge";
+export const dynamic = "force-dynamic";
 
 interface Data {
   name: string;
