@@ -6,22 +6,27 @@
     {
       "title": "My Portfolio",
       "href": "marvinverdera.com",
-      "image": ""
+      "image": "https://scontent.fmnl25-5.fna.fbcdn.net/v/t1.6435-9/162494291_1686040118246849_8042661519713067872_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEozAuYWbWkGmk9Syu2v2cdVvi6ILjregtW-LoguOt6C9IVJCRldSe9VLTUj948FoxIyyCiYNdCYhmJv_3Tc21w&_nc_ohc=LiZi2mTrBLUAX84RSw_&_nc_ht=scontent.fmnl25-5.fna&oh=00_AfAzJwk3fRWHgKhodIHvC6ioU1vrPj9cpqAQXz115xXxUg&oe=63EC9382"
     },
     {
       "title": "Vercel Website",
       "href": "vercel.com",
+      "image": ""
+    },
+    {
+      "title": "Next JS Org",
+      "href": "nextjs.org",
       "image": ""
     }
   ],
   "socials": [
     {
       "title": "fb",
-      "href": ""
+      "href": "twitter.com"
     },
     {
       "title": "github",
-      "href": ""
+      "href": "github.com"
     }
   ]
 }
