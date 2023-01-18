@@ -1,13 +1,40 @@
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "./page.module.css";
-import data from "../data.json";
+import { get } from "@vercel/edge-config";
+import { redirect } from "next/navigation";
+
 import {
   ArrowDownCircleIcon,
   ArchiveBoxArrowDownIcon,
 } from "@heroicons/react/24/solid";
 
-export default function Home() {
+interface Data {
+  name: string;
+  avatar: string;
+  links: Link[];
+  socials: Social[];
+}
+
+interface Link {
+  href: string;
+  title: string;
+  image?: string;
+}
+
+interface Social {
+  href: string;
+  title: string;
+  image?: string;
+}
+
+export default async function Home() {
+  const data: Data | undefined = await get("linktree-store");
+
+  if (!data) {
+    redirect("/error");
+  }
+
   return (
     <>
       <div className="flex flex-col items-center justify-center mx-auto w-full mt-16 px-8">
@@ -23,15 +50,18 @@ export default function Home() {
           <LinkCard key={link.href} {...link} />
         ))}
         <div className="flex items-center gap-4 mt-8">
-          {data.socials.map((link) => {
-            if (link.href.includes("twitter")) {
+          {data.socials.map((social) => {
+            if (social.href.includes("twitter")) {
               return (
-                <ArrowDownCircleIcon key={link.href} className="w-8 h-8" />
+                <ArrowDownCircleIcon key={social.href} className="w-8 h-8" />
               );
             }
-            if (link.href.includes("github")) {
+            if (social.href.includes("github")) {
               return (
-                <ArchiveBoxArrowDownIcon key={link.href} className="w-8 h-8" />
+                <ArchiveBoxArrowDownIcon
+                  key={social.href}
+                  className="w-8 h-8"
+                />
               );
             }
           })}
